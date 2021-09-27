@@ -1,0 +1,458 @@
+:root {
+  
+  --color-primary: #ffff;
+  --color-secondary: #000;
+  
+  --color-hover-b: #383838;
+  
+  --color-hover: #E8E8E8;
+  --color-pressed: #B8B8B8;
+  
+}
+
+body {
+  
+  padding: 0;
+  margin: 0;
+  
+}
+
+html, body {
+  
+  height: 100%;
+  font-family: sans-serif;
+  
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+  
+}
+
+.footer {
+  
+  display: flex;
+  
+  z-index: 10;
+  
+  position: absolute;
+  bottom: 10px;
+  height: 10%;
+  width: 100%;
+  left: 0px;
+  margin: 0 auto;
+  
+  background-color: var(--color-primary);
+  border-top: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+  box-shadow: 0 0 10px var(--color-secondary);
+  
+}
+
+.topcontainer {
+  
+  display: flex;
+  
+  width: 100%;
+  height: 100%;
+  
+}
+
+.menu {
+  
+  z-index: 9;
+  
+  display: flex;
+  
+  height: 100%;
+  width: 12.5em;
+  
+  background-color: var(--color-primary);
+  border-right: 2px solid var(--color-secondary); 
+  box-shadow: 0 0 10px var(--color-secondary);
+  
+  flex-direction: column;
+  
+}
+
+.rightwrap {
+  
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+  height: 100%;
+  
+}
+
+.header {
+  
+  z-index: 8;
+  
+  display: flex;
+  align-items: center;
+  text-align: left;
+  
+  width: 100%;
+  height: 10%;
+  
+  background-color: var(--color-primary);
+  border-bottom: 2px solid var(--color-secondary); 
+  box-shadow: 0 0 10px var(--color-secondary);
+  
+  flex-direction: row;
+  
+}
+
+.window-title {
+  
+  font-size: 20px;
+  margin-left: .75em;
+  
+}
+
+
+
+/* -------------------- */
+/*       MENU CSS       */
+/* -------------------- */
+
+.m {
+  
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+  
+}
+
+.m.button {
+  
+  display: block;
+  
+  width: 100%;
+  height: 3em;
+  line-height: 3em;
+  text-align: left;
+  
+  cursor: pointer;
+  
+  background-color: var(--color-primary);
+  
+  border-bottom: 1px solid var(--color-hover);
+    
+}
+
+.m.button:hover {
+  
+  background-color: var(--color-hover);
+  
+}
+
+.m.button:active {
+  
+  background-color: var(--color-pressed);
+  
+}
+
+.m.button i {
+  
+  margin-left: .75em;
+  margin-right: .5em;
+  
+}
+
+.m.playlist-container {
+  
+  display: flex;  
+  flex-direction: column;
+  
+}
+
+.m.playlist {
+  
+  text-align: left;
+  line-height: 1.5em;
+  
+  cursor: pointer;
+  
+  background-color: var(--color-primary);
+  border-bottom: 1px solid var(--color-hover);
+  
+}
+
+.m.playlist.first {
+  
+  border-top: 1px solid var(--color-hover);
+  
+}
+
+.m.playlist i {
+  
+  margin-left: .5em;
+  
+}
+
+.m.playlist:hover {
+  
+  background-color: var(--color-hover);
+  
+}
+
+.m.playlist:active {
+  
+  background-color: var(--color-pressed);
+  
+}
+
+
+/* -------------------- */
+/*      FOOTER CSS      */
+/* -------------------- */
+
+/* TRACK */
+
+.track-playing {
+  
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+    
+  width: 20%;
+  height: 100%;
+  
+}
+
+.playing-title {
+  
+  width: 100%;
+  font-size: 20px;
+  
+}
+
+.playing-author {
+  
+  width: 100%;
+  font-size: 15px;
+  
+}
+
+/* CONTROLS */
+
+.controls {
+  
+  height: 100%;
+  width: 60%;
+  
+}
+
+.controls-top {
+  
+  display: flex;
+  
+  height: 50%;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+}
+
+.c {
+  
+  cursor: pointer;
+  font-size: 20px;
+  
+}
+
+.c.play {
+  
+  font-size: 30px;
+  margin-right: .5em;
+  margin-left: .5em;
+  
+}
+
+.c:hover {
+  
+  color: var(--color-hover-b);
+  
+}
+
+/* TIMELINE */
+
+.controls-bottom {
+  
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  height: 50%;
+  
+}
+
+.timeline {
+  
+  display: flex;
+  
+  width: 80%;
+  height: 10px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.t-input {
+  
+  background: linear-gradient(to right, var(--color-secondary) 0%, var(--color-secondary) 50%, var(--color-pressed) 50%, var(--color-pressed) 100%);
+  
+  border: solid 1px #82CFD0;
+  
+  height: 10px;
+  width: 90%;
+  
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+  
+  cursor: pointer;
+  
+}
+
+.t-input::-webkit-slider-thumb {
+  
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0px;
+  height: 0px;
+  cursor: pointer;
+  
+}
+
+.time-passed {
+  
+  margin-right: .5em;
+  
+}
+
+.time-total {
+  
+  margin-left: .5em;
+  
+}
+
+/* AUDIO CONTROLS */
+
+.audio-controls {
+  
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  width: 20%;
+  
+}
+
+.audio-controls > i {
+  
+  font-size: 16px;
+  margin-right: 0.5em;
+  
+}
+
+/* -------------------- */
+/*      TRACK CSS       */
+/* -------------------- */
+
+.songs {
+  
+  z-index: 7;
+  
+  display: block;
+  overflow: auto;
+  
+  width: 100%;
+  height: 100%;
+  
+}
+
+.track {
+  
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  
+  width: 100%;
+  height: 4em;
+  
+}
+
+.track.playing {
+  
+  background-color: var(--color-hover);
+  
+}
+
+.track:hover {
+  
+  background-color: var(--color-hover);
+  
+}
+
+.track.playing:hover {
+  
+  background-color: var(--color-pressed);
+  
+}
+
+.track > i {
+  
+  font-size: 26px;
+  margin-right: 1em;
+  margin-left: .5em;
+  
+  cursor: pointer;
+  
+}
+
+.track-info {
+  
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.track-title {
+  
+  font-size: 20px;
+  
+}
+
+.track-author {
+  
+  font-size: 13px;
+  
+}
+
+.track-length {
+  
+  position: fixed;
+  
+  right: 1em;
+  text-align: right;
+  
+}
+
