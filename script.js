@@ -17,6 +17,8 @@ var trackElement = `<div id="t%id%-div" class="track">
       </div>
 `;
 
+var colorMode = 0;
+
 var playingTrackId = 9999999999;
 var playing = false;
 
@@ -234,6 +236,43 @@ function playAction() {
     document.getElementById("play-i").className = "fas fa-pause";
     audioPlayer.play();
     playing = true;
+    
+  }
+  
+}
+
+function switchColor() {
+  
+  var root = document.documentElement;
+  
+  if (colorMode == 0) {
+    colorMode = 1;
+    
+    root.style.setProperty("--color-primary", "#181818");
+    root.style.setProperty("--color-secondary", "#DC5A1B");
+    root.style.setProperty("--color-text", "#DC5A1B");
+    
+    root.style.setProperty("--color-hover-b", "#2d1306");
+    
+    root.style.setProperty("--color-hover", "#262626");
+    root.style.setProperty("--color-pressed", "#333333");
+    
+    document.getElementById("colormode-icon").className = "fas fa-sun";
+    
+  } else if (colorMode == 1) {
+    
+    colorMode = 0;
+    
+    root.style.setProperty("--color-primary", "#ffff");
+    root.style.setProperty("--color-secondary", "#000");
+    root.style.setProperty("--color-text", "#000");
+    
+    root.style.setProperty("--color-hover-b", "#383838");
+    
+    root.style.setProperty("--color-hover", "#E8E8E8");
+    root.style.setProperty("--color-pressed", "#B8B8B8");
+    
+    document.getElementById("colormode-icon").className = "fas fa-moon";
     
   }
   

@@ -82,6 +82,11 @@
     
     <div class="header">
       <a class="window-title">Ferrify</a>
+      
+      <div style="flex-grow: 1"></div>
+      
+      <a onclick="switchColor()" id="colormode" class="colormode"><i id="colormode-icon" class="fas fa-moon"></i></a>
+      
     </div>
   
     <div id="track-wrap" class="songs">
