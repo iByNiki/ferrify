@@ -17,18 +17,23 @@ var trackElement = `<div id="t%id%-div" class="track">
       </div>
 `;
 
+var playlistElement = '<a onclick="selectPlaylist(this);" class="m playlist"><i></i>%name%</a>';
+
 var colorMode = 0;
 
+var currentPlaylist = "";
 var playingTrackId = 9999999999;
 var playing = false;
 
 var loadedTracks = [];
+var loadedPlaylists = [];
 var lastTrackId = 0;
 
 var currentSecond = 0;
 var songLength = 1;
 var currentVolume = 1;
 
+var playlistWrap = document.getElementById("playlist-wrap");
 var trackWrap = document.getElementById("track-wrap");
 var timePassed = document.getElementById("t-passed");
 var timeTotal = document.getElementById("t-total");
@@ -131,21 +136,28 @@ function loadTracks() {
   xhr.onload = function () {
     
     var trackData = JSON.parse(this.responseText);
-    var tracks = trackData.tracks;
+    var playlists = trackData.playlists;
     
-    tracks.forEach(function(ctrack) {
-
-      loadedTracks.push({
-        
-        "id": lastTrackId,
-        "name": ctrack.split(" - ")[0],
-        "author": ctrack.split(" - ")[1].split(".")[0],
-        "url": githubUrl + "/tracks/" + ctrack
-        
-      });
-        
-      lastTrackId += 1;
+    playlists.forEach(function(playlist) {
       
+      loadedPlaylists.push(playlist.name);
+      var tracks = playlist.tracks;
+    
+      tracks.forEach(function(ctrack) {
+
+        loadedTracks.push({
+        
+          "id": lastTrackId,
+          "name": ctrack.split(" - ")[0],
+          "author": ctrack.split(" - ")[1].split(".")[0],
+          "playlist": playlist.name,
+          "url": githubUrl + "/tracks/" + ctrack
+        
+        });
+        
+        lastTrackId += 1;
+      
+      });
     });
     
     insertTracks();
@@ -158,9 +170,27 @@ function loadTracks() {
 
 function insertTracks() {
   
+  playlistWrap.innerHTML = "";
+  
+  loadedPlaylists.forEach(function(playlist) {
+    
+    if (playlistWrap.innerHTML == "") {
+      
+      playlistWrap.innerHTML += playlistElement.replace("%name%", playlist).replace('"m playlist"', '"m playlist first"');
+      
+    } else {
+      
+      playlistWrap.innerHTML += playlistElement.replace("%name%", playlist);
+      
+    }
+    
+  });
+  
   trackWrap.innerHTML = "";
   
   loadedTracks.forEach(function(track) {
+    
+    if (currentPlaylist != track.playlist) return;
     
     var toAdd = trackElement.replaceAll("%id%", track.id.toString());
     
@@ -275,6 +305,13 @@ function switchColor() {
     document.getElementById("colormode-icon").className = "fas fa-moon";
     
   }
+  
+}
+
+function selectPlaylist(playlistElement) {
+  
+  currentPlaylist = playlistElement.innerHTML.replace("<i></i>", "");
+  insertTracks();
   
 }
 

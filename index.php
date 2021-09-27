@@ -67,13 +67,7 @@
     
     <div style="width: 100%; height: 2em"></div>
     
-    <div class="m playlist-container">
-      
-      <a class="m playlist first"><i></i>Chill</a>
-      <a class="m playlist"><i></i>Rap</a>
-      <a class="m playlist"><i></i>Classic</a>
-      <a class="m playlist"><i></i>Pop</a>
-      
+    <div id="playlist-wrap" class="m playlist-container">
     </div>
 
   </div>
