@@ -1,3 +1,5 @@
+var firstLoad = true;
+
 var githubUrl = "https://raw.githubusercontent.com/iByNiki/MusicApp/main/";
 
 var trackElement = `<div id="t%id%-div" class="track">
@@ -231,6 +233,9 @@ function playTrack(track) {
   
   document.getElementById("playing-title").innerHTML = track.name;
   document.getElementById("playing-author").innerHTML = track.author;
+  
+  document.getElementById("m-playing-title").innerHTML = track.name;
+  document.getElementById("m-playing-author").innerHTML = track.author;
       
   audioPlayer.pause();
   audioPlayer.currentTime = 0;
@@ -316,6 +321,8 @@ function selectPlaylist(playlistElement) {
 }
 
 loadTracks();
+
+
 setSecond(currentSecond, true);
 
 setInterval(updateTime, 500);

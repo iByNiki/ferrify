@@ -69,6 +69,15 @@
     
     <div id="playlist-wrap" class="m playlist-container">
     </div>
+    
+    <div style="flex-grow: 1"></div>
+    
+    <div class="m-track-playing">
+      <a id="m-playing-title" class="m-playing-title">None</a>
+      <a id="m-playing-author" class="m-playing-author">None</a>
+    </div>
+    
+    <div style="flex-grow: 0.5"></div>
 
   </div>
   
