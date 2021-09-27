@@ -11,8 +11,8 @@ var trackElement = `<div id="t%id%-div" class="track">
           
         </div>
         
-        <div class="track-filler"></div>
-        <a id="t%id%-length" class="track-length">2:30</a>
+        <!--<div class="track-filler"></div>
+        <a id="t%id%-length" class="track-length">2:30</a>-->
           
       </div>
 `;
@@ -25,6 +25,7 @@ var lastTrackId = 0;
 
 var currentSecond = 0;
 var songLength = 1;
+var currentVolume = 1;
 
 var trackWrap = document.getElementById("track-wrap");
 var timePassed = document.getElementById("t-passed");
@@ -85,7 +86,8 @@ aInput.oninput = function() {
   
   aInput.style.background = "linear-gradient(to right, var(--color-secondary) 0%, var(--color-secondary) " + value + "%, var(--color-pressed) " + value + "%, var(--color-pressed) 100%)";
   
-  audioPlayer.volume = value / 100;
+  audioPlayer.volume = value / 100;;
+  currentVolume = value / 100;
   
 }
 
@@ -207,6 +209,8 @@ function playTrack(track) {
     songLength = this.duration;
         
   }
+  
+  audioPlayer.volume = currentVolume;
       
   audioPlayer.play();
       
