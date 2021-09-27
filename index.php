@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Music app</title>
+  <title>Ferrify</title>
   <link rel="stylesheet" href="./style.css">
 
 </head>
