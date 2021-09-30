@@ -30,6 +30,8 @@ var playing = false;
 var loadedTracks = [];
 var loadedPlaylists = [];
 var lastTrackId = 0;
+var tracksInPlaylist = 0;
+var lastTrackInPlaylist = 9999999999;
 
 var currentSecond = 0;
 var songLength = 1;
@@ -106,9 +108,9 @@ function updateTime() {
   
   if (currentSecond >= songLength) {
     
-    if (playingTrackId + 1 > loadedTracks.length - 1) {
+    if (playingTrackId + 1 > lastTrackInPlaylist - 1) {
       
-      playingTrackId = 0;
+      playingTrackId = startTrackId;
       
     } else {
       
@@ -173,6 +175,8 @@ function loadTracks() {
 function insertTracks() {
   
   playlistWrap.innerHTML = "";
+  tracksInPlaylist = 0;
+  startTrackId = null;
   
   loadedPlaylists.forEach(function(playlist) {
     
@@ -193,6 +197,10 @@ function insertTracks() {
   loadedTracks.forEach(function(track) {
     
     if (currentPlaylist != track.playlist) return;
+    
+    if (startTrackId == null) startTrackId = track.id;
+    
+    lastTrackInPlaylist = track.id;
     
     var toAdd = trackElement.replaceAll("%id%", track.id.toString());
     
@@ -254,6 +262,9 @@ function playTrack(track) {
   playingTrackId = track.id;
   insertTracks();
   document.getElementById("play-i").className = "fas fa-pause";
+  
+  document.title = track.name + " - " + track.author;
+  
   playing = true;
   
 }
@@ -284,8 +295,8 @@ function switchColor() {
     colorMode = 1;
     
     root.style.setProperty("--color-primary", "#181818");
-    root.style.setProperty("--color-secondary", "#DC5A1B");
-    root.style.setProperty("--color-text", "#DC5A1B");
+    root.style.setProperty("--color-secondary", "#000");
+    root.style.setProperty("--color-text", "#E0E0E0");
     
     root.style.setProperty("--color-hover-b", "#2d1306");
     
