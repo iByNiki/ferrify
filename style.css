@@ -39,6 +39,32 @@ html, body {
   
 }
 
+::-webkit-scrollbar {
+  
+  width: 10px;
+  
+}
+
+::-webkit-scrollbar-track {
+  
+  background-color: var(--color-primary); 
+  
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  
+  background-color: var(--color-hover); 
+  
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  
+  background-color: var(--color-pressed); 
+  
+}
+
 .footer {
   
   display: flex;

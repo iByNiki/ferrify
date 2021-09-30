@@ -108,7 +108,7 @@ function updateTime() {
   
   if (currentSecond >= songLength) {
     
-    if (playingTrackId + 1 > lastTrackInPlaylist - 1) {
+    if (playingTrackId + 1 > lastTrackInPlaylist) {
       
       playingTrackId = startTrackId;
       
