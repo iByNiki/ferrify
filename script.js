@@ -337,3 +337,5 @@ loadTracks();
 setSecond(currentSecond, true);
 
 setInterval(updateTime, 500);
+
+document.title = "Ferrify";
